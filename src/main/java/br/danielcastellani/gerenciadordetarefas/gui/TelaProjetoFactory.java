@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.gerenciadordetarefas.gui;
+package br.danielcastellani.gerenciadordetarefas.gui;
 
-import com.mycompany.gerenciadordetarefas.modelo.Projeto;
+import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 
 /**
  *

@@ -2,10 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.gerenciadordetarefas.modelo;
+package br.danielcastellani.gerenciadordetarefas.modelo;
 
-import com.mycompany.gerenciadordetarefas.bd.ObjetoPersistente;
-import java.io.Serializable;
+import br.danielcastellani.gerenciadordetarefas.bd.ObjetoPersistente;
 
 
 /**
@@ -15,11 +14,16 @@ import java.io.Serializable;
 public class Projeto extends ObjetoPersistente{
 
     private String nome;
-    private String descrição;
+    private String descricao;
 
-    public Projeto(String nome, String descrição) {
+    public Projeto(String nome, String descricao) {
         this.nome = nome;
-        this.descrição = descrição;
+        this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return nome + " - " + descricao;
     }
 
     public Projeto() {
@@ -42,14 +46,14 @@ public class Projeto extends ObjetoPersistente{
     /**
      * @return the descrição
      */
-    public String getDescrição() {
-        return descrição;
+    public String getDescricao() {
+        return descricao;
     }
 
     /**
-     * @param descrição the descrição to set
+     * @param descricao the descrição to set
      */
-    public void setDescrição(String descrição) {
-        this.descrição = descrição;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

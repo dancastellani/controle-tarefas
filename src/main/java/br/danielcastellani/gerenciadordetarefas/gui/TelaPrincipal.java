@@ -6,7 +6,6 @@ package br.danielcastellani.gerenciadordetarefas.gui;
 
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaPrincipalControlador;
-import java.awt.Graphics;
 
 /**
  *
@@ -14,15 +13,11 @@ import java.awt.Graphics;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    private TelaPrincipalControlador controlador;
-
     /**
      * Creates new form Principal
      */
     public TelaPrincipal() {
         initComponents();
-        controlador = new TelaPrincipalControlador(this);
-        Contexto.getInstance().put(controlador.getClass().getCanonicalName(), controlador);
     }
 
     /**
@@ -113,14 +108,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaSobre(evt);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaProjetosListagem(evt);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaCriarNovoProjeto(evt);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

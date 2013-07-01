@@ -1,7 +1,8 @@
 package br.danielcastellani.gerenciadordetarefas;
 
 import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
-import br.danielcastellani.gerenciadordetarefas.gui.TelaPrincipal;
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
+import br.danielcastellani.gerenciadordetarefas.controle.TelaPrincipalControlador;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.util.List;
 
@@ -14,8 +15,7 @@ public class App {
         projetos.add(new Projeto("Projeto 2", "Ipson Loren 2"));
         projetos.add(new Projeto("Projeto 3", "Ipson Loren 3"));
         projetos.add(new Projeto("Projeto 4", "Ipson Loren 4"));
-
-        TelaPrincipal principal = new TelaPrincipal();
-        principal.setVisible(true);
+        TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
+        controlador.exibeTelaPrincipal();
     }
 }

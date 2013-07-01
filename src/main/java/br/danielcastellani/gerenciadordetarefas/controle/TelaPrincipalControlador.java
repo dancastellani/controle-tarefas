@@ -25,8 +25,8 @@ public class TelaPrincipalControlador {
     private TelaProjetoListagem telaProjetoListagem;
     private TelaSobre telaSobre;
 
-    public TelaPrincipalControlador(TelaPrincipal telaPrincipal) {
-        this.telaPrincipal = telaPrincipal;
+    public TelaPrincipalControlador() {
+        this.telaPrincipal = new TelaPrincipal();
     }
 
     public void exibeTelaSobre(java.awt.event.ActionEvent evt) {
@@ -72,5 +72,9 @@ public class TelaPrincipalControlador {
         telaProjetoEditar.setVisible(true);
         TelaProjetoControlador controlador = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
         controlador.atualizaTelaEditar(projeto);
+    }
+
+    public void exibeTelaPrincipal() {
+        telaPrincipal.setVisible(true);
     }
 }

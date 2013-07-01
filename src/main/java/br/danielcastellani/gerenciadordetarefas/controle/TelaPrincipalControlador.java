@@ -23,19 +23,14 @@ public class TelaPrincipalControlador {
     private TelaProjeto telaProjetoCriar;
     private TelaProjeto telaProjetoEditar;
     private TelaProjetoListagem telaProjetoListagem;
-    private TelaSobre telaSobre;
 
     public TelaPrincipalControlador() {
         this.telaPrincipal = new TelaPrincipal();
     }
 
     public void exibeTelaSobre(java.awt.event.ActionEvent evt) {
-        if (telaSobre == null) {
-            telaSobre = new TelaSobre();
-            telaPrincipal.getContentPane().add(telaSobre);
-        }
-        telaSobre.pack();
-        telaSobre.setVisible(true);
+        TelaSobreControlador controlador = (TelaSobreControlador) Contexto.getInstance().get(TelaSobreControlador.class.getCanonicalName());
+        controlador.exibeTelaSobre();
     }
 
     public void exibeTelaProjetosListagem(ActionEvent evt) {
@@ -76,5 +71,9 @@ public class TelaPrincipalControlador {
 
     public void exibeTelaPrincipal() {
         telaPrincipal.setVisible(true);
+    }
+
+    void adicionaAoContainer(TelaSobre telaSobre) {
+        telaPrincipal.getContentPane().add(telaSobre);
     }
 }

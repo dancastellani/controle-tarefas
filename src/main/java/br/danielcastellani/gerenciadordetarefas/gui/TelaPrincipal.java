@@ -37,11 +37,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuProjetos = new javax.swing.JMenu();
+        jMenuItemListarProjetos = new javax.swing.JMenuItem();
+        jMenuItemCriarProjeto = new javax.swing.JMenuItem();
+        jMenuAjuda = new javax.swing.JMenu();
+        jMenuItemSobre = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -59,37 +59,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Projetos");
+        jMenuProjetos.setText("Projetos");
 
-        jMenuItem3.setText("Listar Projetos");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemListarProjetos.setText("Listar Projetos");
+        jMenuItemListarProjetos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItemListarProjetosActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenuProjetos.add(jMenuItemListarProjetos);
 
-        jMenuItem4.setText("Criar Projeto");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemCriarProjeto.setText("Criar Projeto");
+        jMenuItemCriarProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemCriarProjetoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenuProjetos.add(jMenuItemCriarProjeto);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuProjetos);
 
-        jMenu2.setText("Ajuda");
+        jMenuAjuda.setText("Ajuda");
 
-        jMenuItem1.setText("Sobre");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemSobre.setText("Sobre");
+        jMenuItemSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemSobreActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenuAjuda.add(jMenuItemSobre);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuAjuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -107,33 +107,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSobreActionPerformed
         TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaSobre(evt);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemSobreActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItemListarProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarProjetosActionPerformed
         TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaProjetosListagem(evt);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuItemListarProjetosActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItemCriarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCriarProjetoActionPerformed
         TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
         controlador.exibeTelaCriarNovoProjeto(evt);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuItemCriarProjetoActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItemCriarProjeto;
+    private javax.swing.JMenuItem jMenuItemListarProjetos;
+    private javax.swing.JMenuItem jMenuItemSobre;
+    private javax.swing.JMenu jMenuProjetos;
     // End of variables declaration//GEN-END:variables
 }

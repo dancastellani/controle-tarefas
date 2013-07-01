@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.controle;
 
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaSobre;
 
 /**
@@ -11,15 +12,21 @@ import br.danielcastellani.gerenciadordetarefas.gui.TelaSobre;
  * @author Daniel
  */
 public class TelaSobreControlador {
-    TelaSobre telaSobre;
 
-    public TelaSobreControlador(TelaSobre telaSobre) {
-        this.telaSobre = telaSobre;
-    }
+    TelaSobre telaSobre;
 
     public void fechar() {
         telaSobre.setVisible(false);
     }
 
-    
+    void exibeTelaSobre() {
+        if (telaSobre == null) {
+            telaSobre = new TelaSobre();
+            TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
+            controlador.adicionaAoContainer(telaSobre);
+            telaSobre.setClosable(true);
+        }
+        telaSobre.pack();
+        telaSobre.setVisible(true);
+    }
 }

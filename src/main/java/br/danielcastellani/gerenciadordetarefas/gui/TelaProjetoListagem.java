@@ -21,8 +21,6 @@ public class TelaProjetoListagem extends javax.swing.JInternalFrame {
      */
     public TelaProjetoListagem() {
         initComponents();
-        controlador = new TelaProjetoListagemControlador(this);
-        Contexto.getInstance().put(controlador.getClass().getCanonicalName(), controlador);
     }
 
     /**

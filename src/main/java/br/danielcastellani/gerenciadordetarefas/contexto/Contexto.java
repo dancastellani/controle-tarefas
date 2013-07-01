@@ -5,6 +5,7 @@
 package br.danielcastellani.gerenciadordetarefas.contexto;
 
 import br.danielcastellani.gerenciadordetarefas.controle.TelaPrincipalControlador;
+import br.danielcastellani.gerenciadordetarefas.controle.TelaProjetoListagemControlador;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaSobreControlador;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,8 +43,8 @@ public class Contexto {
     private void inicializaControladores() {
         this.objetos.put(TelaPrincipalControlador.class.getCanonicalName(), new TelaPrincipalControlador());
         this.objetos.put(TelaSobreControlador.class.getCanonicalName(), new TelaSobreControlador());
+        this.objetos.put(TelaProjetoListagemControlador.class.getCanonicalName(), new TelaProjetoListagemControlador());
 //        this.objetos.put(TelaProjetoControlador.class.getCanonicalName(), new TelaProjetoControlador());
-//        this.objetos.put(TelaProjetoListagemControlador.class.getCanonicalName(), new TelaProjetoListagemControlador());
         
     }
     

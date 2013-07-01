@@ -23,7 +23,7 @@ public class TelaSobreControlador {
         if (telaSobre == null) {
             telaSobre = new TelaSobre();
             TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
-            controlador.adicionaAoContainer(telaSobre);
+            controlador.adicionarComponente(telaSobre);
             telaSobre.setClosable(true);
         }
         telaSobre.pack();

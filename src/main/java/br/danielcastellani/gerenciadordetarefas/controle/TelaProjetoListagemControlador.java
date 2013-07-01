@@ -5,12 +5,11 @@
 package br.danielcastellani.gerenciadordetarefas.controle;
 
 import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjeto;
-import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoListagem;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,12 +23,15 @@ public class TelaProjetoListagemControlador {
     private TelaProjetoListagem telaProjetoListagem;
     private String[] cabecalho = {"Nome", "Descrição", "Ações"};
 
-    public TelaProjetoListagemControlador(TelaProjetoListagem telaProjetoListagem) {
-        this.telaProjetoListagem = telaProjetoListagem;
-    }
-
     public void listarProjetos() {
-        System.out.println("public void listarProjetos() {");
+        if (telaProjetoListagem == null) {
+            telaProjetoListagem = new TelaProjetoListagem();
+            TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
+            controlador.adicionarComponente(telaProjetoListagem);
+        }
+        telaProjetoListagem.pack();
+        telaProjetoListagem.setVisible(true);
+
         List<Projeto> projetos = BancoDeDados.getBancoDeDados().getListaProjetos();
 
         JPanel listagem = telaProjetoListagem.getPanelListagem();
@@ -37,7 +39,7 @@ public class TelaProjetoListagemControlador {
 
         listagem.removeAll();
         System.gc();
-        
+
         for (String itemDeCabecalho : cabecalho) {
             listagem.add(new JLabel(itemDeCabecalho));
         }
@@ -49,4 +51,7 @@ public class TelaProjetoListagemControlador {
         }
     }
 
+    void esconde() {
+        telaProjetoListagem.setVisible(false);
+    }
 }

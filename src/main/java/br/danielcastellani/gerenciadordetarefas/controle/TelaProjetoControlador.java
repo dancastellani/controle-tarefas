@@ -24,8 +24,11 @@ public class TelaProjetoControlador {
     public void salvar(Projeto projeto) {
         projeto.setNome(telaProjeto.getTxtNome().getText());
         projeto.setDescricao(telaProjeto.getTxtDescricao().getText());
-        BancoDeDados.getBancoDeDados().getListaProjetos().add(projeto);
-        
+
+        if (telaProjeto.isCriacao()) {
+            BancoDeDados.getBancoDeDados().getListaProjetos().add(projeto);
+        }
+
         limparCampos();
         telaProjeto.setVisible(false);
         JOptionPane.showMessageDialog(telaProjeto, "Projeto salvo com sucesso");
@@ -40,4 +43,10 @@ public class TelaProjetoControlador {
         telaProjeto.getTxtNome().setText("");
         telaProjeto.getTxtDescricao().setText("");
     }
+    
+    public  void atualizaTelaEditar(Projeto projetoParaEditar) {
+        telaProjeto.getTxtNome().setText(projetoParaEditar.getNome());
+        telaProjeto.getTxtDescricao().setText(projetoParaEditar.getDescricao());
+    }
+
 }

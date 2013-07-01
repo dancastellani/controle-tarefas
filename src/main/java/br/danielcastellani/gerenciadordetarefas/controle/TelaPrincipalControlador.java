@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.controle;
 
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaPrincipal;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoFactory;
@@ -19,7 +20,8 @@ import java.awt.event.ActionEvent;
 public class TelaPrincipalControlador {
 
     private TelaPrincipal telaPrincipal;
-    private TelaProjeto telaProjeto;
+    private TelaProjeto telaProjetoCriar;
+    private TelaProjeto telaProjetoEditar;
     private TelaProjetoListagem telaProjetoListagem;
     private TelaSobre telaSobre;
 
@@ -41,16 +43,34 @@ public class TelaPrincipalControlador {
             telaProjetoListagem = new TelaProjetoListagem();
             telaPrincipal.getContentPane().add(telaProjetoListagem);
         }
+
         telaProjetoListagem.pack();
         telaProjetoListagem.setVisible(true);
+
+        TelaProjetoListagemControlador controlador;
+        controlador = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
+
+        controlador.listarProjetos();
     }
 
     public void exibeTelaCriarNovoProjeto(ActionEvent evt) {
-        if (telaProjeto == null) {
-            telaProjeto = TelaProjetoFactory.criaTelaNovoProjeto();
-            telaPrincipal.getContentPane().add(telaProjeto);
+        if (telaProjetoCriar == null) {
+            telaProjetoCriar = TelaProjetoFactory.criaTelaNovoProjeto();
+            telaPrincipal.getContentPane().add(telaProjetoCriar);
         }
-        telaProjeto.pack();
-        telaProjeto.setVisible(true);
+        telaProjetoCriar.pack();
+        telaProjetoCriar.setVisible(true);
+    }
+
+    public void editarProjeto(Projeto projeto) {
+        telaProjetoListagem.setVisible(false);
+
+        if (telaProjetoEditar == null) {
+            telaProjetoEditar = TelaProjetoFactory.criaTelaEditarProjeto(projeto);
+            telaPrincipal.getContentPane().add(telaProjetoEditar);
+        }
+        telaProjetoEditar.setVisible(true);
+        TelaProjetoControlador controlador = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
+        controlador.atualizaTelaEditar(projeto);
     }
 }

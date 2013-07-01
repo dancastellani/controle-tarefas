@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
 
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaProjetoListagemControlador;
 
 /**
@@ -21,7 +22,7 @@ public class TelaProjetoListagem extends javax.swing.JInternalFrame {
     public TelaProjetoListagem() {
         initComponents();
         controlador = new TelaProjetoListagemControlador(this);
-        controlador.listarProjetos();
+        Contexto.getInstance().put(controlador.getClass().getCanonicalName(), controlador);
     }
 
     /**

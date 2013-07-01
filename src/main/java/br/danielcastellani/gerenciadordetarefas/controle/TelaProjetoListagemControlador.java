@@ -29,11 +29,15 @@ public class TelaProjetoListagemControlador {
     }
 
     public void listarProjetos() {
+        System.out.println("public void listarProjetos() {");
         List<Projeto> projetos = BancoDeDados.getBancoDeDados().getListaProjetos();
 
         JPanel listagem = telaProjetoListagem.getPanelListagem();
         listagem.setLayout(new GridLayout(projetos.size() + 1, cabecalho.length));
 
+        listagem.removeAll();
+        System.gc();
+        
         for (String itemDeCabecalho : cabecalho) {
             listagem.add(new JLabel(itemDeCabecalho));
         }

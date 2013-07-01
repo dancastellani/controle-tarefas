@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
 
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaProjetoControlador;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 
@@ -17,12 +18,14 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
     public static int OPCAO_EDITAR_PROJETO = 1;
     private Projeto projeto;
     private TelaProjetoControlador controlador;
+    private int opcaoDaTela;
 
     /**
      * Creates new form CadastrarEditarSituacao
      */
     public TelaProjeto(int opcao, Projeto projeto) {
         initComponents();
+        this.opcaoDaTela = opcao;
         if (opcao == OPCAO_EDITAR_PROJETO) {
             this.setTitle("Editar Projeto: " + projeto.getNome());
         } else if (opcao == OPCAO_NOVO_PROJETO) {
@@ -30,6 +33,7 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
         }
         this.projeto = projeto;
         controlador = new TelaProjetoControlador(this);
+        Contexto.getInstance().put(controlador.getClass().getCanonicalName(), controlador);
     }
 
     /**
@@ -177,6 +181,14 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
      */
     public javax.swing.JTextField getTxtNome() {
         return txtNome;
+    }
+
+    public boolean isCriacao() {
+        return TelaProjeto.OPCAO_NOVO_PROJETO == opcaoDaTela;
+    }
+
+    void atualizaTelaEditar(TelaProjeto telaProjeto, Projeto projetoParaEditar) {
+        controlador.atualizaTelaEditar(projetoParaEditar);
     }
 
 }

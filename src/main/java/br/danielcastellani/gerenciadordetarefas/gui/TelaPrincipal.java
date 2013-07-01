@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.gui;
 
+import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.controle.TelaPrincipalControlador;
 import java.awt.Graphics;
 
@@ -21,6 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         controlador = new TelaPrincipalControlador(this);
+        Contexto.getInstance().put(controlador.getClass().getCanonicalName(), controlador);
     }
 
     /**

@@ -17,6 +17,12 @@ public class TelaProjetoFactory {
     }
 
     public static TelaProjeto criaTelaEditarProjeto(Projeto projetoParaEditar) {
-        return new TelaProjeto(TelaProjeto.OPCAO_EDITAR_PROJETO, projetoParaEditar);
+        TelaProjeto telaProjeto = new TelaProjeto(TelaProjeto.OPCAO_EDITAR_PROJETO, projetoParaEditar);
+        telaProjeto.atualizaTelaEditar(telaProjeto, projetoParaEditar);
+        return telaProjeto;
     }
+
+    
+    
+    
 }

@@ -69,7 +69,7 @@ public class TelaSobre extends javax.swing.JInternalFrame {
         jTextPane2.setEditable(false);
         jTextPane2.setBackground(new java.awt.Color(240, 240, 240));
         jTextPane2.setBorder(null);
-        jTextPane2.setText("Daniel Castellani");
+        jTextPane2.setText("Ricardo Vilela e Rafael Andrade");
         jScrollPane3.setViewportView(jTextPane2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

@@ -37,12 +37,10 @@ public class TelaPrincipalControlador {
     }
 
     public void exibeTelaCriarNovoProjeto(ActionEvent evt) {
-        if (telaProjetoCriar == null) {
-            telaProjetoCriar = TelaProjetoFactory.criaTelaNovoProjeto();
-            telaPrincipal.getContentPane().add(telaProjetoCriar);
-        }
+        criaTelaSeNaoExistir();
         telaProjetoCriar.pack();
         telaProjetoCriar.setVisible(true);
+        telaProjetoCriar.setProjeto(new Projeto());
     }
 
     public void editarProjeto(Projeto projeto) {
@@ -65,5 +63,12 @@ public class TelaPrincipalControlador {
 
     void adicionarComponente(JComponent component) {
         telaPrincipal.getContentPane().add(component);
+    }
+
+    private void criaTelaSeNaoExistir() {
+        if (telaProjetoCriar == null) {
+            telaProjetoCriar = TelaProjetoFactory.criaTelaNovoProjeto();
+            telaPrincipal.getContentPane().add(telaProjetoCriar);
+        }
     }
 }

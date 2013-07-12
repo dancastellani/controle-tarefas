@@ -147,7 +147,7 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        System.out.println("projeto = " + projeto);
+        System.out.println("Salvando o projeto = " + projeto);
         controlador.salvar(projeto);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -158,7 +158,6 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
     private void txtDescricaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescricaoFocusLost
         projeto.setDescricao(txtDescricao.getText());
     }//GEN-LAST:event_txtDescricaoFocusLost
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
@@ -191,4 +190,7 @@ public class TelaProjeto extends javax.swing.JInternalFrame {
         controlador.atualizaTelaEditar(projetoParaEditar);
     }
 
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
+    }
 }

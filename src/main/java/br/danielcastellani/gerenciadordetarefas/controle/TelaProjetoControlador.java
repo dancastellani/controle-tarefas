@@ -45,6 +45,7 @@ public class TelaProjetoControlador {
     }
     
     public  void atualizaTelaEditar(Projeto projetoParaEditar) {
+        telaProjeto.setProjeto(projetoParaEditar);
         telaProjeto.getTxtNome().setText(projetoParaEditar.getNome());
         telaProjeto.getTxtDescricao().setText(projetoParaEditar.getDescricao());
     }

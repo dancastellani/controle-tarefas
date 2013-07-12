@@ -5,6 +5,7 @@
 package br.danielcastellani.gerenciadordetarefas.modelo;
 
 import br.danielcastellani.gerenciadordetarefas.bd.ObjetoPersistente;
+import java.util.List;
 
 
 /**
@@ -15,6 +16,7 @@ public class Projeto extends ObjetoPersistente{
 
     private String nome;
     private String descricao;
+    private List<Tarefa> tarefas;
 
     public Projeto(String nome, String descricao) {
         this.nome = nome;
@@ -55,5 +57,19 @@ public class Projeto extends ObjetoPersistente{
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    /**
+     * @return the tarefas
+     */
+    public List<Tarefa> getTarefas() {
+        return tarefas;
+    }
+
+    /**
+     * @param tarefas the tarefas to set
+     */
+    public void setTarefas(List<Tarefa> tarefas) {
+        this.tarefas = tarefas;
     }
 }

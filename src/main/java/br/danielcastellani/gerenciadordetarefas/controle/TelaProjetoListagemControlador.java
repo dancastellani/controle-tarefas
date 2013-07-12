@@ -6,7 +6,8 @@ package br.danielcastellani.gerenciadordetarefas.controle;
 
 import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
-import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjeto;
+import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoEditar;
+import br.danielcastellani.gerenciadordetarefas.gui.ButtonProjetoRemover;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjetoListagem;
 import br.danielcastellani.gerenciadordetarefas.modelo.Projeto;
 import java.awt.GridLayout;
@@ -21,7 +22,7 @@ import javax.swing.JPanel;
 public class TelaProjetoListagemControlador {
 
     private TelaProjetoListagem telaProjetoListagem;
-    private String[] cabecalho = {"Nome", "Descrição", "Ações"};
+    private String[] cabecalho = {"Nome", "Descrição", "Editar", "Remover"};
 
     public void listarProjetos() {
         if (telaProjetoListagem == null) {
@@ -29,9 +30,14 @@ public class TelaProjetoListagemControlador {
             TelaPrincipalControlador controlador = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
             controlador.adicionarComponente(telaProjetoListagem);
         }
-        telaProjetoListagem.pack();
-        telaProjetoListagem.setVisible(true);
+        atualizaListagem();
+    }
 
+    void esconde() {
+        telaProjetoListagem.setVisible(false);
+    }
+
+    void atualizaListagem() {
         List<Projeto> projetos = BancoDeDados.getBancoDeDados().getListaProjetos();
 
         JPanel listagem = telaProjetoListagem.getPanelListagem();
@@ -40,18 +46,22 @@ public class TelaProjetoListagemControlador {
         listagem.removeAll();
         System.gc();
 
-        for (String itemDeCabecalho : cabecalho) {
-            listagem.add(new JLabel(itemDeCabecalho));
-        }
+        if (projetos.isEmpty()) {
+            listagem.add(new JLabel("Não existem projetos."));
+        } else {
+            for (String itemDeCabecalho : cabecalho) {
+                listagem.add(new JLabel(itemDeCabecalho));
+            }
 
-        for (Projeto projeto : projetos) {
-            listagem.add(new JLabel(projeto.getNome()));
-            listagem.add(new JLabel(projeto.getDescricao()));
-            listagem.add(new ButtonProjeto(projeto));
+            for (Projeto projeto : projetos) {
+                listagem.add(new JLabel(projeto.getNome()));
+                listagem.add(new JLabel(projeto.getDescricao()));
+                listagem.add(new ButtonProjetoEditar(projeto));
+                listagem.add(new ButtonProjetoRemover(projeto));
+            }
         }
-    }
-
-    void esconde() {
-        telaProjetoListagem.setVisible(false);
+        telaProjetoListagem.pack();
+        telaProjetoListagem.setVisible(true);
+        telaProjetoListagem.repaint();
     }
 }

@@ -13,11 +13,11 @@ import javax.swing.JButton;
  *
  * @author Daniel
  */
-public class ButtonProjeto extends JButton {
+public class ButtonProjetoEditar extends JButton {
 
     private Projeto projeto;
 
-    public ButtonProjeto(Projeto projeto) {
+    public ButtonProjetoEditar(Projeto projeto) {
         this.projeto = projeto;
         this.setText("Editar");
 

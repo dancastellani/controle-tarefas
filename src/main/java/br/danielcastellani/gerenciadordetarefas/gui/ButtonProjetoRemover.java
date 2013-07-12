@@ -13,23 +13,23 @@ import javax.swing.JButton;
  *
  * @author Daniel
  */
-public class ButtonProjeto extends JButton {
+public class ButtonProjetoRemover extends JButton {
 
     private Projeto projeto;
 
-    public ButtonProjeto(Projeto projeto) {
+    public ButtonProjetoRemover(Projeto projeto) {
         this.projeto = projeto;
-        this.setText("Editar");
+        this.setText("Remover");
 
         addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarProjeto(evt);
+                removerProjeto(evt);
             }
         });
     }
     
-    public void editarProjeto(java.awt.event.ActionEvent evt) {
+    public void removerProjeto(java.awt.event.ActionEvent evt) {
         TelaPrincipalControlador controladorTelaPrincipal = (TelaPrincipalControlador) Contexto.getInstance().get(TelaPrincipalControlador.class.getCanonicalName());
-        controladorTelaPrincipal.editarProjeto(projeto);
+        controladorTelaPrincipal.removerProjeto(projeto);
     }
 }

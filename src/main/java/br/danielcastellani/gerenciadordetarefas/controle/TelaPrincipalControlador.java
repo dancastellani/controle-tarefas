@@ -4,6 +4,7 @@
  */
 package br.danielcastellani.gerenciadordetarefas.controle;
 
+import br.danielcastellani.gerenciadordetarefas.bd.BancoDeDados;
 import br.danielcastellani.gerenciadordetarefas.contexto.Contexto;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaPrincipal;
 import br.danielcastellani.gerenciadordetarefas.gui.TelaProjeto;
@@ -52,7 +53,7 @@ public class TelaPrincipalControlador {
             telaPrincipal.getContentPane().add(telaProjetoEditar);
         }
         telaProjetoEditar.setVisible(true);
-        
+
         TelaProjetoControlador controladorEditar = (TelaProjetoControlador) Contexto.getInstance().get(TelaProjetoControlador.class.getCanonicalName());
         controladorEditar.atualizaTelaEditar(projeto);
     }
@@ -70,5 +71,12 @@ public class TelaPrincipalControlador {
             telaProjetoCriar = TelaProjetoFactory.criaTelaNovoProjeto();
             telaPrincipal.getContentPane().add(telaProjetoCriar);
         }
+    }
+
+    public void removerProjeto(Projeto projeto) {
+        BancoDeDados.getBancoDeDados().getListaProjetos().remove(projeto);
+
+        TelaProjetoListagemControlador controladorListagem = (TelaProjetoListagemControlador) Contexto.getInstance().get(TelaProjetoListagemControlador.class.getCanonicalName());
+        controladorListagem.atualizaListagem();
     }
 }
